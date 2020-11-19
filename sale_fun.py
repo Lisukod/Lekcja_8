@@ -1,8 +1,15 @@
 def sale_fun(
-    product_id, unit_price, product_amount, saldo, check, logs, storehouse
+    product_id,
+    unit_price,
+    product_amount,
+    saldo,
+    check,
+    logs,
+    storehouse,
+    dataDest,
 ):
     if product_amount < 0:
-        print(
+        dataDest.write(
             "Błąd. Ujemna ilość zakupionego towaru {} w ilości {}".format(
                 product_id, product_amount
             )
@@ -10,7 +17,7 @@ def sale_fun(
         check = False
         return
     elif unit_price * product_amount < 0:
-        print(
+        dataDest.write(
             "Błąd. Ujemna kwota zakupu {} w ilości {}".format(
                 product_id, product_amount
             )
@@ -21,7 +28,7 @@ def sale_fun(
     if product_id in storehouse:
         storehouse[product_id] -= product_amount
     else:
-        print("Błąd. Brak produktu {} na magazynie".format(product_id))
+        dataDest.write("Błąd. Brak produktu {} na magazynie".format(product_id))
         check = False
         return
     saldo += unit_price * product_amount

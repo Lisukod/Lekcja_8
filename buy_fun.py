@@ -1,8 +1,15 @@
 def buy_fun(
-    product_id, unit_price, product_amount, saldo, check, logs, storehouse
+    product_id,
+    unit_price,
+    product_amount,
+    saldo,
+    check,
+    logs,
+    storehouse,
+    dataDest,
 ):
     if saldo - unit_price * product_amount < 0:
-        print(
+        dataDest.write(
             "Błąd. Ujemne saldo po zakupie {} w ilości {}".format(
                 product_id, product_amount
             )
@@ -10,7 +17,7 @@ def buy_fun(
         check = False
         return
     elif product_amount < 0:
-        print(
+        dataDest.write(
             "Błąd. Ujemna ilość zakupionego towaru {} w ilości {}".format(
                 product_id, product_amount
             )
@@ -18,7 +25,7 @@ def buy_fun(
         check = False
         return
     elif unit_price * product_amount < 0:
-        print(
+        dataDest.write(
             "Błąd. Ujemna kwota zakupu {} w ilości {}".format(
                 product_id, product_amount
             )

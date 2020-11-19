@@ -1,7 +1,7 @@
-def printOut(logs):
+def printOut(logs, dataDest):
     for log in logs:
         if log == "stop":
-            print("{}".format(log))
+            dataDest.write("{}\n".format(log))
         else:
             for log_element in log:
-                print("{}".format(log_element))
+                dataDest.write("{}\n".format(log_element))
