@@ -28,7 +28,9 @@ def sale_fun(
     if product_id in storehouse:
         storehouse[product_id] -= product_amount
     else:
-        dataDest.write("Błąd. Brak produktu {} na magazynie".format(product_id))
+        dataDest.write(
+            "Błąd. Brak produktu {} na magazynie".format(product_id)
+        )
         check = False
         return
     saldo += unit_price * product_amount

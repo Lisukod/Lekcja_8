@@ -22,7 +22,10 @@ while check:
     action = sourceLines[count].strip()
     if action == "saldo":
         saldo = saldo_fun(
-            int(sourceLines[count + 1]), sourceLines[count + 2].strip(), saldo, logs
+            int(sourceLines[count + 1]),
+            sourceLines[count + 2].strip(),
+            saldo,
+            logs,
         )
         count += 3
     elif action == "zakup" or action == "sprzedaż":
